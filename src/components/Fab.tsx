@@ -1,6 +1,8 @@
 import React from 'react'
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 
 interface IFab{
   iconName:string;
@@ -16,7 +18,14 @@ export const Fab = ({iconName, onPress, style = {}}:IFab) => {
         onPress={onPress}
         style={styles.blackButton}
       >
-
+        <Icon 
+          name={iconName}
+          color="white"
+          size={35}
+          style={{
+            left: 1
+          }}
+        />
       </TouchableOpacity>
     </View>
   )
@@ -24,6 +33,20 @@ export const Fab = ({iconName, onPress, style = {}}:IFab) => {
 
 const styles = StyleSheet.create({
   blackButton:{
-
+    zIndex: 9999,
+    height: 50,
+    width: 50,
+    backgroundColor: 'black',
+    borderRadius: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset:{
+      width: 0,
+      height: 3
+    },
+    shadowOpacity: 0.27,
+    shadowRadius: 4.65,
+    elevation: 6
   }
 });
